@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ site_settings.site_name|default:"IntimaCare" }} - {{ site_settings.tagline|default:"Your trusted telehealth platform" }}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ site_settings.site_name|default:"IntimaCare" }}</h1>
+            <p class="hero-tagline">{{ site_settings.tagline|default:"Your trusted telehealth platform" }}</p>
+            
+            <div class="hero-buttons">
+                <a href="{% url 'services' %}" class="btn btn-primary">Our Services</a>
+                <a href="{% url 'contact' %}" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dynamic Homepage Sections -->
+{% if homepage_sections %}
+<section class="homepage-sections">
+    {% for section in homepage_sections %}
+    <div class="section-container {% cycle 'section-left' 'section-right' %}">
+        <div class="section-content">
+            <div class="section-text">
+                <h2>{{ section.title }}</h2>
+                {% if section.subtitle %}
+                    <h3 class="section-subtitle">{{ section.subtitle }}</h3>
+                {% endif %}
+                <p>{{ section.description|linebreaks }}</p>
+            </div>
+            {% if section.image %}
+            <div class="section-image">
+                <img src="{{ section.image.url }}" alt="{{ section.title }}" loading="lazy">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endif %}
+
+<!-- Features Overview -->
+<section class="features-overview">
+    <div class="features-container">
+        <h2>Why Choose IntimaCare?</h2>
+        <p>Discover the benefits of our comprehensive telehealth platform</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your health data is protected with enterprise-grade security and HIPAA compliance.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast & Reliable</h3>
+                <p>Get instant access to health insights and connect with professionals quickly.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Easy to Use</h3>
+                <p>Intuitive interface designed for users of all ages and technical backgrounds.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>Available Anywhere</h3>
+                <p>Access healthcare from home, work, or anywhere with an internet connection.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works-home">
+    <div class="how-it-works-container">
+        <h2>How IntimaCare Works</h2>
+        <p>Getting started with your health journey is simple</p>
+        
+        <div class="steps-timeline">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Sign Up</h3>
+                    <p>Create your secure account and complete your health profile in minutes.</p>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Choose Your Service</h3>
+                    <p>Select from AI consultations, professional clinicians, or community support.</p>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Get Personalized Care</h3>
+                    <p>Receive tailored health insights and professional medical guidance.</p>
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Track Your Progress</h3>
+                    <p>Monitor your health journey with our comprehensive tracking tools.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="stats-section">
+    <div class="stats-container">
+        <h2>Trusted by Thousands</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">50,000+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">1M+</div>
+                <div class="stat-label">Consultations</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Healthcare Professionals</div>
+            </div>
+            
+            <div class="stat-item">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div class="testimonials-container">
+        <h2>What Our Users Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"IntimaCare has revolutionized how I manage my health. The AI insights are incredibly accurate and the doctors are always available when I need them."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👩‍💼</div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <span>Marketing Manager</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"As someone with chronic conditions, the daily tracking feature helps me stay on top of my health. The red-flag alerts have been life-saving."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👨‍🔬</div>
+                    <div class="author-info">
+                        <h4>Dr. Michael Chen</h4>
+                        <span>Research Scientist</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"The community support feature connected me with others facing similar health challenges. It's comforting to know I'm not alone in this journey."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">👵</div>
+                    <div class="author-info">
+                        <h4>Maria Rodriguez</h4>
+                        <span>Retired Teacher</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2>Ready to Transform Your Healthcare Experience?</h2>
+        <p>Join thousands of users who trust IntimaCare for their telehealth needs. Start your journey to better health today.</p>
+        <div class="cta-buttons">
+            <a href="{% url 'services' %}" class="btn btn-primary">Explore Services</a>
+            <a href="{% url 'contact' %}" class="btn btn-outline">Contact Us</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

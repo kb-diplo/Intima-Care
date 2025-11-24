@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Frequently Asked Questions - {{ site_settings.site_name|default:"IntimaCare" }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="page-header-container">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about our telehealth platform and services.</p>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="faq-container">
+        {% if faqs %}
+            <div class="faq-list">
+                {% for faq in faqs %}
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>{{ faq.question }}</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>{{ faq.answer|linebreaks }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <!-- Default FAQs if none are configured in admin -->
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What is IntimaCare?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>IntimaCare is a comprehensive telehealth platform that provides AI-powered health consultations, access to qualified clinicians, health tracking, and community support.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How secure is my health data?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We use enterprise-grade security measures and comply with healthcare privacy regulations to ensure your data is protected and confidential.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can I speak with real doctors?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our platform connects you with licensed healthcare professionals for personalized consultations and medical advice.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What devices can I use?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>IntimaCare works on smartphones, tablets, and computers with internet access. Our platform is optimized for all modern devices.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How much does it cost?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer various pricing plans to suit different needs. Contact us for detailed pricing information and to find the plan that's right for you.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Is there 24/7 support available?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our AI consultation feature is available 24/7. For human support and clinician consultations, please check our support hours or contact us for emergency protocols.</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2>Still Have Questions?</h2>
+        <p>Can't find what you're looking for? Our support team is here to help.</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary">Contact Support</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function toggleFAQ(element) {
+    const faqItem = element.parentElement;
+    const answer = faqItem.querySelector('.faq-answer');
+    const toggle = element.querySelector('.faq-toggle');
+    
+    // Close all other FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+            item.classList.remove('active');
+            item.querySelector('.faq-answer').style.maxHeight = null;
+            item.querySelector('.faq-toggle').textContent = '+';
+        }
+    });
+    
+    // Toggle current FAQ item
+    if (faqItem.classList.contains('active')) {
+        faqItem.classList.remove('active');
+        answer.style.maxHeight = null;
+        toggle.textContent = '+';
+    } else {
+        faqItem.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        toggle.textContent = '−';
+    }
+}
+</script>
+{% endblock %}

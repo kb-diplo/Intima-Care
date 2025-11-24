@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load markdown_extras %}
+
+{% block title %}{{ document.title }} - {{ site_settings.site_name|default:"IntimaCare" }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="page-header-container">
+        <h1>{{ document.title }}</h1>
+        <p class="last-updated">Last updated: {{ document.last_updated|date:"F d, Y" }}</p>
+    </div>
+</section>
+
+<!-- Document Content -->
+<section class="legal-document">
+    <div class="legal-container">
+        <div class="legal-content">
+            {{ document.content|markdown_to_html }}
+        </div>
+        
+        <div class="legal-footer">
+            <p><strong>Last Updated:</strong> {{ document.last_updated|date:"F d, Y" }}</p>
+            <p>If you have any questions about this {{ document.title|lower }}, please <a href="{% url 'contact' %}">contact us</a>.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Navigation -->
+<section class="legal-navigation">
+    <div class="legal-nav-container">
+        <h3>Other Legal Documents</h3>
+        <div class="legal-links">
+            <a href="{% url 'privacy_policy' %}" {% if document.document_type == 'privacy' %}class="active"{% endif %}>Privacy Policy</a>
+            <a href="{% url 'terms' %}" {% if document.document_type == 'terms' %}class="active"{% endif %}>Terms & Conditions</a>
+            <a href="{% url 'cookies_policy' %}" {% if document.document_type == 'cookies' %}class="active"{% endif %}>Cookies Policy</a>
+            <a href="{% url 'accessibility' %}" {% if document.document_type == 'accessibility' %}class="active"{% endif %}>Accessibility Statement</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

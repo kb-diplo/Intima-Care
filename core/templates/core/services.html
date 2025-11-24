@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Services - {{ site_settings.site_name|default:"IntimaCare" }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="page-header-container">
+        <h1>Our Services</h1>
+        <p>Comprehensive telehealth solutions designed for your wellbeing.</p>
+    </div>
+</section>
+
+<!-- Services Grid -->
+<section class="services-section">
+    <div class="services-container">
+        {% if service_features %}
+            {% for feature in service_features %}
+            <div class="service-card">
+                {% if feature.icon_class %}
+                    <div class="service-icon">
+                        <i class="{{ feature.icon_class }}"></i>
+                    </div>
+                {% else %}
+                    <div class="service-icon">
+                        <span class="default-icon">🏥</span>
+                    </div>
+                {% endif %}
+                <h3>{{ feature.name }}</h3>
+                <p>{{ feature.description|linebreaks }}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <!-- Default services if none are configured in admin -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <span class="default-icon">🤖</span>
+                </div>
+                <h3>AI Consultation</h3>
+                <p>Get instant health insights and preliminary assessments through our advanced AI system.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <span class="default-icon">👨‍⚕️</span>
+                </div>
+                <h3>Clinician Consultations</h3>
+                <p>Connect with qualified healthcare professionals for personalized medical consultations.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <span class="default-icon">📊</span>
+                </div>
+                <h3>Daily Tracking</h3>
+                <p>Monitor your health metrics and symptoms with our comprehensive tracking tools.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <span class="default-icon">🚨</span>
+                </div>
+                <h3>Red-Flag Alerts</h3>
+                <p>Receive immediate notifications for critical health indicators that require attention.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <span class="default-icon">👥</span>
+                </div>
+                <h3>Anonymous Community Support</h3>
+                <p>Connect with others in a safe, anonymous environment for peer support and shared experiences.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <div class="how-it-works-container">
+        <h2>How It Works</h2>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Sign Up</h4>
+                <p>Create your secure account and complete your health profile.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Choose Service</h4>
+                <p>Select the healthcare service that best fits your needs.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Get Care</h4>
+                <p>Receive personalized healthcare guidance and support.</p>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Track Progress</h4>
+                <p>Monitor your health journey with ongoing support and tracking.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2>Ready to Start Your Health Journey?</h2>
+        <p>Experience the future of healthcare with our comprehensive telehealth platform.</p>
+        <div class="cta-buttons">
+            <a href="{% url 'contact' %}" class="btn btn-primary">Get Started</a>
+            <a href="{% url 'about' %}" class="btn btn-outline">Learn More</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

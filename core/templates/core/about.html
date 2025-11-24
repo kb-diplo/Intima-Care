@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - {{ site_settings.site_name|default:"IntimaCare" }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="page-header-container">
+        <h1>About {{ site_settings.site_name|default:"IntimaCare" }}</h1>
+        <p>Learn more about our mission, vision, and commitment to telehealth excellence.</p>
+    </div>
+</section>
+
+<!-- About Content -->
+<section class="about-content">
+    <div class="about-container">
+        <!-- About Text -->
+        {% if site_settings.about_text %}
+        <div class="about-section">
+            <h2>About Us</h2>
+            <div class="about-text">
+                {{ site_settings.about_text|linebreaks }}
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Mission & Vision -->
+        <div class="mission-vision">
+            {% if site_settings.mission %}
+            <div class="mission-section">
+                <div class="icon-section">
+                    <div class="icon-circle">
+                        <span class="icon">🎯</span>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>{{ site_settings.mission|linebreaks }}</p>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if site_settings.vision %}
+            <div class="vision-section">
+                <div class="icon-section">
+                    <div class="icon-circle">
+                        <span class="icon">👁️</span>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>{{ site_settings.vision|linebreaks }}</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Key Features -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h4>Secure & Private</h4>
+                <p>Your health data is protected with enterprise-grade security and privacy measures.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">👨‍⚕️</div>
+                <h4>Expert Care</h4>
+                <p>Access to qualified healthcare professionals and AI-powered health insights.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h4>Easy to Use</h4>
+                <p>User-friendly platform designed for seamless telehealth experiences.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🌍</div>
+                <h4>Accessible</h4>
+                <p>Healthcare access from anywhere, breaking down geographical barriers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <div class="cta-container">
+        <h2>Ready to Experience Better Healthcare?</h2>
+        <p>Join our community and take control of your health journey today.</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary">Get Started</a>
+    </div>
+</section>
+{% endblock %}
