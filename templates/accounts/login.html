@@ -96,6 +96,64 @@
     .auth-link a:hover {
         text-decoration: underline;
     }
+    
+    /* Coming Soon Notice Styling */
+    .coming-soon-notice {
+        background: linear-gradient(135deg, #FFC300 0%, #FFD700 100%);
+        border: 2px solid #E6AF00;
+        border-radius: 12px;
+        padding: 1rem;
+        margin: 1.5rem 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        box-shadow: 0 4px 12px rgba(255, 195, 0, 0.2);
+    }
+    
+    .notice-icon {
+        font-size: 24px;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    
+    .notice-text {
+        flex: 1;
+        text-align: left;
+    }
+    
+    .notice-text strong {
+        color: #333;
+        font-size: 14px;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 4px;
+    }
+    
+    .notice-text p {
+        color: #555;
+        font-size: 12px;
+        margin: 0;
+        line-height: 1.4;
+    }
+    
+    @media (max-width: 480px) {
+        .coming-soon-notice {
+            padding: 0.75rem;
+            gap: 8px;
+        }
+        
+        .notice-icon {
+            font-size: 20px;
+        }
+        
+        .notice-text strong {
+            font-size: 13px;
+        }
+        
+        .notice-text p {
+            font-size: 11px;
+        }
+    }
 </style>
 {% endblock %}
 
@@ -105,6 +163,15 @@
         <div class="auth-header">
             <h1>Welcome Back</h1>
             <p>Sign in to your IntimaCare account</p>
+            
+            <!-- Coming Soon Notice -->
+            <div class="coming-soon-notice">
+                <div class="notice-icon">🚀</div>
+                <div class="notice-text">
+                    <strong>Full System Features Coming Soon!</strong>
+                    <p>Currently showcasing dashboard interfaces and core functionality. Complete telehealth features in development.</p>
+                </div>
+            </div>
         </div>
         
         {% if messages %}
