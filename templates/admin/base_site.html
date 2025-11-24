@@ -1,0 +1,104 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}" style="color: #FFC300; text-decoration: none;">
+        <span style="font-size: 24px; margin-right: 10px;">🏥</span>
+        IntimaCare Admin
+    </a>
+</h1>
+{% endblock %}
+
+{% block nav-global %}
+<div style="background: #333; padding: 10px 0; margin-bottom: 20px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 20px; align-items: center; padding: 0 20px;">
+        <a href="{% url 'home' %}" 
+           style="color: #FFC300; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+            <span style="margin-right: 8px;">🌐</span>
+            View Site
+        </a>
+        <a href="{% url 'admin:accounts_user_changelist' %}" 
+           style="color: white; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+            <span style="margin-right: 8px;">👥</span>
+            Users
+        </a>
+        <a href="{% url 'admin:cms_contactmessage_changelist' %}" 
+           style="color: white; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+            <span style="margin-right: 8px;">📧</span>
+            Messages
+        </a>
+        <a href="{% url 'admin:cms_sitesettings_changelist' %}" 
+           style="color: white; text-decoration: none; font-weight: 500; display: flex; align-items: center;">
+            <span style="margin-right: 8px;">⚙️</span>
+            Settings
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+    /* Custom IntimaCare Admin Styling */
+    #header {
+        background: linear-gradient(135deg, #000 0%, #333 100%);
+        border-bottom: 3px solid #FFC300;
+    }
+    
+    #site-name a:hover {
+        color: #FFD700 !important;
+    }
+    
+    .module h2, .module caption, .inline-group h2 {
+        background: #333;
+        color: #FFC300;
+    }
+    
+    .button, input[type=submit], input[type=button], .submit-row input, a.button {
+        background: #FFC300;
+        color: #333;
+        border: none;
+        font-weight: 600;
+    }
+    
+    .button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button:hover {
+        background: #E6AF00;
+        color: #333;
+    }
+    
+    .selector-chosen h2 {
+        background: #FFC300;
+        color: #333;
+    }
+    
+    a:link, a:visited {
+        color: #333;
+    }
+    
+    a:hover {
+        color: #FFC300;
+    }
+    
+    .breadcrumbs {
+        background: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+    }
+    
+    .breadcrumbs a {
+        color: #333;
+    }
+    
+    .breadcrumbs a:hover {
+        color: #FFC300;
+    }
+    
+    /* Navigation hover effects */
+    div[style*="background: #333"] a:hover {
+        color: #FFC300 !important;
+        transform: translateY(-1px);
+        transition: all 0.2s ease;
+    }
+</style>
+{% endblock %}

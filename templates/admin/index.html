@@ -1,0 +1,130 @@
+{% extends "admin/index.html" %}
+{% load i18n static %}
+
+{% block content %}
+<!-- Custom Dashboard Statistics -->
+{% if dashboard_stats %}
+<div class="dashboard-stats" style="margin-bottom: 30px;">
+    <h2 style="color: #333; margin-bottom: 20px;">📊 Platform Overview</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        <!-- User Statistics -->
+        <div style="background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="color: #333; margin-top: 0; display: flex; align-items: center;">
+                <span style="font-size: 24px; margin-right: 10px;">👥</span>
+                Total Users
+            </h3>
+            <div style="font-size: 36px; font-weight: bold; color: #007bff; margin: 10px 0;">
+                {{ dashboard_stats.total_users }}
+            </div>
+            <div style="color: #666; font-size: 14px;">
+                <div>🏥 {{ dashboard_stats.patients }} Patients</div>
+                <div>👨‍⚕️ {{ dashboard_stats.clinicians }} Clinicians</div>
+                <div>🏢 {{ dashboard_stats.organizations }} Organizations</div>
+            </div>
+        </div>
+        
+        <!-- Recent Activity -->
+        <div style="background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="color: #333; margin-top: 0; display: flex; align-items: center;">
+                <span style="font-size: 24px; margin-right: 10px;">📈</span>
+                Recent Activity
+            </h3>
+            <div style="font-size: 36px; font-weight: bold; color: #28a745; margin: 10px 0;">
+                {{ dashboard_stats.recent_users }}
+            </div>
+            <div style="color: #666; font-size: 14px;">
+                New users in last 30 days
+            </div>
+        </div>
+        
+        <!-- Contact Messages -->
+        <div style="background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="color: #333; margin-top: 0; display: flex; align-items: center;">
+                <span style="font-size: 24px; margin-right: 10px;">📧</span>
+                Messages
+            </h3>
+            <div style="font-size: 36px; font-weight: bold; color: {% if dashboard_stats.unread_messages > 0 %}#dc3545{% else %}#6c757d{% endif %}; margin: 10px 0;">
+                {{ dashboard_stats.unread_messages }}
+            </div>
+            <div style="color: #666; font-size: 14px;">
+                Unread of {{ dashboard_stats.total_messages }} total
+                {% if dashboard_stats.unread_messages > 0 %}
+                    <div style="margin-top: 5px;">
+                        <a href="{% url 'admin:cms_contactmessage_changelist' %}" style="color: #dc3545; text-decoration: none; font-weight: bold;">
+                            → Review Messages
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Content Statistics -->
+        <div style="background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <h3 style="color: #333; margin-top: 0; display: flex; align-items: center;">
+                <span style="font-size: 24px; margin-right: 10px;">📝</span>
+                Active Content
+            </h3>
+            <div style="color: #666; font-size: 14px; line-height: 1.6;">
+                <div style="margin: 8px 0;">
+                    <strong style="color: #FFC300;">{{ dashboard_stats.active_homepage_sections }}</strong> Homepage Sections
+                </div>
+                <div style="margin: 8px 0;">
+                    <strong style="color: #FFC300;">{{ dashboard_stats.active_services }}</strong> Service Features
+                </div>
+                <div style="margin: 8px 0;">
+                    <strong style="color: #FFC300;">{{ dashboard_stats.active_faqs }}</strong> FAQ Items
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+        <h3 style="color: #333; margin-top: 0; display: flex; align-items: center;">
+            <span style="font-size: 24px; margin-right: 10px;">⚡</span>
+            Quick Actions
+        </h3>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <a href="{% url 'admin:accounts_user_changelist' %}" 
+               style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: 500;">
+                👥 Manage Users
+            </a>
+            <a href="{% url 'admin:cms_contactmessage_changelist' %}" 
+               style="background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: 500;">
+                📧 View Messages
+            </a>
+            <a href="{% url 'admin:cms_sitesettings_changelist' %}" 
+               style="background: #ffc107; color: #333; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: 500;">
+                ⚙️ Site Settings
+            </a>
+            <a href="{% url 'admin:cms_homepagesection_changelist' %}" 
+               style="background: #17a2b8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: 500;">
+                🏠 Homepage Content
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .dashboard-stats a:hover {
+        opacity: 0.8;
+        transform: translateY(-1px);
+        transition: all 0.2s ease;
+    }
+    
+    @media (max-width: 768px) {
+        .dashboard-stats > div:first-child {
+            grid-template-columns: 1fr;
+        }
+        
+        .dashboard-stats div[style*="display: flex"] {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+</style>
+{% endif %}
+
+{{ block.super }}
+{% endblock %}

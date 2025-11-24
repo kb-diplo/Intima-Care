@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - {{ site_settings.site_name|default:"IntimaCare" }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .dashboard-container {
+        min-height: calc(100vh - 140px);
+        padding: 4rem 0;
+        background-color: var(--gray-light);
+    }
+    
+    .dashboard-content {
+        max-width: var(--container-max-width);
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+    
+    .dashboard-header {
+        background: var(--white);
+        padding: 3rem;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--box-shadow);
+        margin-bottom: 2rem;
+    }
+    
+    .dashboard-header h1 {
+        color: var(--secondary-color);
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .dashboard-header p {
+        color: var(--gray-medium);
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+    
+    .user-info {
+        background: var(--primary-color);
+        color: var(--secondary-color);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        margin-bottom: 2rem;
+    }
+    
+    .user-info h3 {
+        margin-bottom: 0.5rem;
+    }
+    
+    .user-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .user-detail {
+        text-align: left;
+    }
+    
+    .user-detail strong {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+    
+    .dashboard-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .dashboard-btn {
+        padding: 12px 24px;
+        background-color: var(--secondary-color);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .dashboard-btn:hover {
+        background-color: #333;
+        color: var(--white);
+        transform: translateY(-2px);
+    }
+    
+    .dashboard-btn.logout {
+        background-color: #dc3545;
+    }
+    
+    .dashboard-btn.logout:hover {
+        background-color: #c82333;
+    }
+    
+    .coming-soon {
+        background: var(--white);
+        padding: 3rem;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--box-shadow);
+    }
+    
+    .coming-soon h2 {
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+    }
+    
+    .coming-soon p {
+        color: var(--gray-medium);
+        font-size: 1.125rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-content">
+        <div class="dashboard-header">
+            <h1>Welcome to Your Dashboard</h1>
+            <p>Manage your IntimaCare account and access personalized healthcare services</p>
+            
+            <div class="user-info">
+                <h3>Hello, {{ user.full_name|default:user.username }}!</h3>
+                <div class="user-details">
+                    <div class="user-detail">
+                        <strong>Email:</strong>
+                        {{ user.email }}
+                    </div>
+                    <div class="user-detail">
+                        <strong>Phone:</strong>
+                        {{ user.phone }}
+                    </div>
+                    <div class="user-detail">
+                        <strong>Role:</strong>
+                        {{ user.get_role_display }}
+                    </div>
+                    <div class="user-detail">
+                        <strong>Member Since:</strong>
+                        {{ user.date_joined|date:"F Y" }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-actions">
+                <a href="{% url 'home' %}" class="dashboard-btn">Back to Home</a>
+                <a href="{% url 'logout' %}" class="dashboard-btn logout">Logout</a>
+            </div>
+        </div>
+        
+        <div class="coming-soon">
+            <h2>Dashboard Coming Soon</h2>
+            <p>Your authenticated area will appear here once modules are added. We're working on exciting features including:</p>
+            <ul style="text-align: left; max-width: 600px; margin: 2rem auto;">
+                <li>AI-powered health consultations</li>
+                <li>Appointment scheduling with clinicians</li>
+                <li>Health tracking and monitoring</li>
+                <li>Community support features</li>
+                <li>Personal health records</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
