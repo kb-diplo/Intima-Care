@@ -13,23 +13,23 @@ class SiteSettingsAdmin(admin.ModelAdmin):
     list_display = ('site_name', 'contact_email', 'contact_phone')
     
     fieldsets = (
-        ('🏠 Basic Site Information', {
+        ('Basic Site Information', {
             'fields': ('site_name', 'tagline'),
             'description': 'Main site name and tagline displayed across the website'
         }),
-        ('🎨 Logo & Branding', {
+        ('Logo & Branding', {
             'fields': ('logo', 'primary_color', 'secondary_color'),
             'description': 'Upload your logo and set brand colors (use hex codes like #FFC300)'
         }),
-        ('📝 About Page Content', {
+        ('About Page Content', {
             'fields': ('about_text', 'mission', 'vision'),
             'description': 'Content that appears on your About page'
         }),
-        ('📞 Contact Information', {
+        ('Contact Information', {
             'fields': ('contact_email', 'contact_phone'),
             'description': 'Contact details displayed throughout the site'
         }),
-        ('🦶 Footer Content', {
+        ('Footer Content', {
             'fields': ('footer_text',),
             'description': 'Text that appears in the website footer'
         }),
@@ -46,14 +46,11 @@ class SiteSettingsAdmin(admin.ModelAdmin):
     def changelist_view(self, request, extra_context=None):
         """Add custom context to changelist"""
         extra_context = extra_context or {}
-        extra_context['title'] = '🌐 Website Settings & Content Control'
+        extra_context['title'] = 'Website Settings & Content Control'
         extra_context['subtitle'] = 'Manage your entire website content from here'
         return super().changelist_view(request, extra_context)
     
-    class Media:
-        css = {
-            'all': ('admin/css/custom_admin.css',)
-        }
+    # Using Django's default admin styling for better readability
 
 
 @admin.register(HomepageSection)
@@ -67,15 +64,15 @@ class HomepageSectionAdmin(admin.ModelAdmin):
     ordering = ('order', 'created_at')
     
     fieldsets = (
-        ('📝 Section Content', {
+        ('Section Content', {
             'fields': ('title', 'subtitle', 'description'),
             'description': 'Main content for this homepage section'
         }),
-        ('🖼️ Visual Content', {
+        ('Visual Content', {
             'fields': ('image',),
             'description': 'Optional image for this section'
         }),
-        ('⚙️ Display Settings', {
+        ('Display Settings', {
             'fields': ('active', 'order'),
             'description': 'Control visibility and order on homepage'
         }),
@@ -84,9 +81,9 @@ class HomepageSectionAdmin(admin.ModelAdmin):
     def status_badge(self, obj):
         """Display active status as badge"""
         if obj.active:
-            return format_html('<span style="color: green; font-weight: bold;">✓ Active</span>')
+            return format_html('<span style="color: green; font-weight: bold;">Active</span>')
         else:
-            return format_html('<span style="color: red; font-weight: bold;">✗ Hidden</span>')
+            return format_html('<span style="color: red; font-weight: bold;">Hidden</span>')
     status_badge.short_description = 'Status'
     
     def preview_text(self, obj):
