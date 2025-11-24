@@ -70,3 +70,5 @@ staticfiles/
 DEPLOYMENT.md
 deployment_notes.txt
 *.deploy
+TEST_ACCOUNTS.md
+test_users.py
