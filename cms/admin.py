@@ -8,28 +8,30 @@ from .models import SiteSettings, HomepageSection, FAQ, LegalDocument, ContactMe
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
-    """Enhanced Site Settings Admin"""
+    """Enhanced Site Settings Admin for complete website control"""
+    
+    list_display = ('site_name', 'contact_email', 'contact_phone')
     
     fieldsets = (
-        ('Basic Information', {
-            'fields': ('site_name', 'logo', 'tagline'),
-            'description': 'Core site information and branding'
+        ('🏠 Basic Site Information', {
+            'fields': ('site_name', 'tagline'),
+            'description': 'Main site name and tagline displayed across the website'
         }),
-        ('Colors & Branding', {
-            'fields': ('primary_color', 'secondary_color'),
-            'description': 'Color scheme for the website'
+        ('🎨 Logo & Branding', {
+            'fields': ('logo', 'primary_color', 'secondary_color'),
+            'description': 'Upload your logo and set brand colors (use hex codes like #FFC300)'
         }),
-        ('About Content', {
+        ('📝 About Page Content', {
             'fields': ('about_text', 'mission', 'vision'),
-            'description': 'Content for the About page'
+            'description': 'Content that appears on your About page'
         }),
-        ('Contact Information', {
+        ('📞 Contact Information', {
             'fields': ('contact_email', 'contact_phone'),
-            'description': 'Contact details displayed on the site'
+            'description': 'Contact details displayed throughout the site'
         }),
-        ('Footer', {
+        ('🦶 Footer Content', {
             'fields': ('footer_text',),
-            'description': 'Footer content'
+            'description': 'Text that appears in the website footer'
         }),
     )
     
@@ -44,26 +46,53 @@ class SiteSettingsAdmin(admin.ModelAdmin):
     def changelist_view(self, request, extra_context=None):
         """Add custom context to changelist"""
         extra_context = extra_context or {}
-        extra_context['title'] = 'Site Configuration'
+        extra_context['title'] = '🌐 Website Settings & Content Control'
+        extra_context['subtitle'] = 'Manage your entire website content from here'
         return super().changelist_view(request, extra_context)
+    
+    class Media:
+        css = {
+            'all': ('admin/css/custom_admin.css',)
+        }
 
 
 @admin.register(HomepageSection)
 class HomepageSectionAdmin(admin.ModelAdmin):
-    list_display = ('title', 'active', 'order', 'created_at')
+    """Manage homepage content sections"""
+    
+    list_display = ('title', 'status_badge', 'active', 'order', 'preview_text', 'created_at')
     list_filter = ('active', 'created_at')
     search_fields = ('title', 'subtitle', 'description')
     list_editable = ('active', 'order')
     ordering = ('order', 'created_at')
     
     fieldsets = (
-        ('Content', {
-            'fields': ('title', 'subtitle', 'description', 'image')
+        ('📝 Section Content', {
+            'fields': ('title', 'subtitle', 'description'),
+            'description': 'Main content for this homepage section'
         }),
-        ('Settings', {
-            'fields': ('active', 'order')
+        ('🖼️ Visual Content', {
+            'fields': ('image',),
+            'description': 'Optional image for this section'
+        }),
+        ('⚙️ Display Settings', {
+            'fields': ('active', 'order'),
+            'description': 'Control visibility and order on homepage'
         }),
     )
+    
+    def status_badge(self, obj):
+        """Display active status as badge"""
+        if obj.active:
+            return format_html('<span style="color: green; font-weight: bold;">✓ Active</span>')
+        else:
+            return format_html('<span style="color: red; font-weight: bold;">✗ Hidden</span>')
+    status_badge.short_description = 'Status'
+    
+    def preview_text(self, obj):
+        """Show preview of description"""
+        return obj.description[:50] + '...' if len(obj.description) > 50 else obj.description
+    preview_text.short_description = 'Preview'
 
 
 @admin.register(FAQ)

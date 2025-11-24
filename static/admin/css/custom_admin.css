@@ -1,0 +1,159 @@
+/* Custom Admin Styling for IntimaCare */
+
+/* Fix character encoding issues */
+.field-box .help {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Better fieldset styling */
+.module h2, .module caption, .inline-group h2 {
+    background: linear-gradient(135deg, #333 0%, #555 100%);
+    color: #FFC300;
+    font-weight: 600;
+    padding: 12px 15px;
+    border-radius: 5px 5px 0 0;
+}
+
+/* Enhanced form styling */
+.form-row .help {
+    color: #666;
+    font-size: 12px;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Better button styling */
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: linear-gradient(135deg, #FFC300 0%, #FFD700 100%);
+    color: #333;
+    border: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover, a.button:hover {
+    background: linear-gradient(135deg, #E6AF00 0%, #FFC300 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Status badges */
+.status-active {
+    background: #28a745;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.status-inactive {
+    background: #dc3545;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* Better table styling */
+#result_list th {
+    background: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+    border-bottom: 2px solid #FFC300;
+}
+
+#result_list tr:hover {
+    background: #fff8e1;
+}
+
+/* Fieldset descriptions */
+.fieldset .description {
+    background: #f8f9fa;
+    border-left: 4px solid #FFC300;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #555;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Image preview in admin */
+.field-logo img, .field-image img {
+    max-width: 200px;
+    max-height: 200px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Color input styling */
+input[type="color"] {
+    width: 60px;
+    height: 40px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Textarea improvements */
+textarea {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+textarea:focus {
+    border-color: #FFC300;
+    box-shadow: 0 0 5px rgba(255, 195, 0, 0.3);
+}
+
+/* Dashboard stats styling */
+.dashboard-stats {
+    margin: 20px 0;
+}
+
+.dashboard-stats .stat-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Navigation improvements */
+.breadcrumbs {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 2px solid #FFC300;
+    padding: 15px 20px;
+}
+
+.breadcrumbs a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumbs a:hover {
+    color: #FFC300;
+}
+
+/* Fix for empty content display */
+.field-box .vTextField, .field-box .vLargeTextField {
+    min-height: 100px;
+}
+
+/* Better spacing */
+.form-row {
+    margin-bottom: 20px;
+}
+
+.form-row:last-child {
+    margin-bottom: 0;
+}

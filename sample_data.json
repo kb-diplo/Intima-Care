@@ -1,0 +1,206 @@
+[
+  {
+    "model": "cms.sitesettings",
+    "pk": 1,
+    "fields": {
+      "site_name": "IntimaCare",
+      "primary_color": "#FFC300",
+      "secondary_color": "#000000",
+      "tagline": "Your trusted telehealth platform for comprehensive healthcare solutions",
+      "about_text": "IntimaCare is a revolutionary telehealth platform that combines cutting-edge AI technology with expert medical professionals to provide accessible, personalized healthcare solutions. Our mission is to break down barriers to healthcare access and empower individuals to take control of their health journey.\n\nFounded with the vision of making quality healthcare available to everyone, regardless of location or circumstances, IntimaCare offers a comprehensive suite of services including AI-powered consultations, direct access to licensed clinicians, health tracking tools, and a supportive community environment.",
+      "mission": "To democratize healthcare access by providing innovative, secure, and personalized telehealth solutions that empower individuals to achieve optimal health outcomes from anywhere in the world.",
+      "vision": "To become the leading global telehealth platform that seamlessly integrates artificial intelligence with human expertise, creating a future where quality healthcare is accessible, affordable, and available to all.",
+      "contact_email": "info@intimacare.com",
+      "contact_phone": "+1 (555) 123-4567",
+      "footer_text": "© IntimaCare 2025 - Empowering Health, Everywhere"
+    }
+  },
+  {
+    "model": "cms.homepagesection",
+    "pk": 1,
+    "fields": {
+      "title": "AI-Powered Health Insights",
+      "subtitle": "Get instant, intelligent health assessments",
+      "description": "Our advanced AI system provides preliminary health assessments and insights, helping you understand your symptoms and health concerns before connecting with healthcare professionals. Available 24/7 for immediate guidance.",
+      "active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "cms.homepagesection",
+    "pk": 2,
+    "fields": {
+      "title": "Expert Medical Consultations",
+      "subtitle": "Connect with licensed healthcare professionals",
+      "description": "Schedule consultations with qualified doctors, specialists, and healthcare providers from the comfort of your home. Our network of medical professionals is ready to provide personalized care and treatment recommendations.",
+      "active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "cms.homepagesection",
+    "pk": 3,
+    "fields": {
+      "title": "Comprehensive Health Tracking",
+      "subtitle": "Monitor your health journey",
+      "description": "Track your symptoms, medications, vital signs, and health metrics with our intuitive tracking tools. Get insights into your health patterns and share comprehensive reports with your healthcare providers.",
+      "active": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "cms.servicefeature",
+    "pk": 1,
+    "fields": {
+      "name": "AI Consultation",
+      "description": "Get instant health insights and preliminary assessments through our advanced AI system. Available 24/7 for immediate guidance and health recommendations.",
+      "icon_class": "fas fa-robot",
+      "active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "cms.servicefeature",
+    "pk": 2,
+    "fields": {
+      "name": "Clinician Consultations",
+      "description": "Connect with qualified healthcare professionals for personalized medical consultations. Schedule appointments with doctors and specialists at your convenience.",
+      "icon_class": "fas fa-user-md",
+      "active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "cms.servicefeature",
+    "pk": 3,
+    "fields": {
+      "name": "Daily Tracking",
+      "description": "Monitor your health metrics and symptoms with our comprehensive tracking tools. Keep detailed records of your health journey and progress.",
+      "icon_class": "fas fa-chart-line",
+      "active": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "cms.servicefeature",
+    "pk": 4,
+    "fields": {
+      "name": "Red-Flag Alerts",
+      "description": "Receive immediate notifications for critical health indicators that require attention. Our system monitors your data for concerning patterns.",
+      "icon_class": "fas fa-exclamation-triangle",
+      "active": true,
+      "order": 4
+    }
+  },
+  {
+    "model": "cms.servicefeature",
+    "pk": 5,
+    "fields": {
+      "name": "Anonymous Community Support",
+      "description": "Connect with others in a safe, anonymous environment for peer support and shared experiences. Join discussions and find community support.",
+      "icon_class": "fas fa-users",
+      "active": true,
+      "order": 5
+    }
+  },
+  {
+    "model": "cms.faq",
+    "pk": 1,
+    "fields": {
+      "question": "What is IntimaCare?",
+      "answer": "IntimaCare is a comprehensive telehealth platform that provides AI-powered health consultations, access to qualified clinicians, health tracking, and community support. We combine cutting-edge technology with expert medical care to make healthcare more accessible.",
+      "active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "cms.faq",
+    "pk": 2,
+    "fields": {
+      "question": "How secure is my health data?",
+      "answer": "We use enterprise-grade security measures and comply with healthcare privacy regulations including HIPAA. Your data is encrypted both in transit and at rest, and we never share your personal health information without your explicit consent.",
+      "active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "cms.faq",
+    "pk": 3,
+    "fields": {
+      "question": "Can I speak with real doctors?",
+      "answer": "Yes, our platform connects you with licensed healthcare professionals including doctors, nurses, and specialists. You can schedule consultations for personalized medical advice and treatment recommendations.",
+      "active": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "cms.faq",
+    "pk": 4,
+    "fields": {
+      "question": "What devices can I use?",
+      "answer": "IntimaCare works on smartphones, tablets, and computers with internet access. Our platform is optimized for all modern devices and browsers, ensuring you can access your healthcare anywhere.",
+      "active": true,
+      "order": 4
+    }
+  },
+  {
+    "model": "cms.faq",
+    "pk": 5,
+    "fields": {
+      "question": "How much does it cost?",
+      "answer": "We offer various pricing plans to suit different needs and budgets. Contact us for detailed pricing information and to find the plan that's right for you. We also accept many insurance plans.",
+      "active": true,
+      "order": 5
+    }
+  },
+  {
+    "model": "cms.faq",
+    "pk": 6,
+    "fields": {
+      "question": "Is there 24/7 support available?",
+      "answer": "Our AI consultation feature is available 24/7 for immediate health insights. For human support and clinician consultations, our team is available during business hours, with emergency protocols in place for urgent situations.",
+      "active": true,
+      "order": 6
+    }
+  },
+  {
+    "model": "cms.legaldocument",
+    "pk": 1,
+    "fields": {
+      "title": "Privacy Policy",
+      "slug": "privacy-policy",
+      "document_type": "privacy",
+      "content": "# Privacy Policy\n\n**Effective Date:** November 24, 2025\n\n## Introduction\n\nIntimaCare (\"we,\" \"our,\" or \"us\") is committed to protecting your privacy and ensuring the security of your personal health information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our telehealth platform.\n\n## Information We Collect\n\n### Personal Information\n- Name, email address, phone number\n- Date of birth and demographic information\n- Health insurance information\n- Payment and billing information\n\n### Health Information\n- Medical history and health records\n- Symptoms and health concerns\n- Consultation notes and treatment plans\n- Health tracking data and metrics\n\n### Technical Information\n- Device information and IP address\n- Usage data and platform interactions\n- Cookies and similar technologies\n\n## How We Use Your Information\n\n- Provide telehealth services and consultations\n- Maintain and improve our platform\n- Communicate with you about your health and services\n- Process payments and billing\n- Comply with legal and regulatory requirements\n\n## Information Sharing\n\nWe do not sell, trade, or rent your personal health information. We may share information only:\n- With your healthcare providers (with consent)\n- For legal compliance or safety reasons\n- With service providers under strict confidentiality agreements\n\n## Data Security\n\nWe implement industry-standard security measures including:\n- End-to-end encryption for all communications\n- Secure data storage and transmission\n- Regular security audits and updates\n- Access controls and authentication measures\n\n## Your Rights\n\n- Access and review your personal information\n- Request corrections to inaccurate data\n- Request deletion of your information\n- Opt-out of certain communications\n\n## Contact Us\n\nFor questions about this Privacy Policy, contact us at:\n- Email: privacy@intimacare.com\n- Phone: +1 (555) 123-4567\n- Address: IntimaCare Privacy Office"
+    }
+  },
+  {
+    "model": "cms.legaldocument",
+    "pk": 2,
+    "fields": {
+      "title": "Terms & Conditions",
+      "slug": "terms-conditions",
+      "document_type": "terms",
+      "content": "# Terms & Conditions\n\n**Effective Date:** November 24, 2025\n\n## Agreement to Terms\n\nBy accessing and using IntimaCare's telehealth platform, you agree to be bound by these Terms & Conditions and all applicable laws and regulations.\n\n## Description of Service\n\nIntimaCare provides telehealth services including:\n- AI-powered health consultations\n- Access to licensed healthcare professionals\n- Health tracking and monitoring tools\n- Community support features\n\n## User Responsibilities\n\n### Account Security\n- Maintain confidentiality of your account credentials\n- Notify us immediately of any unauthorized access\n- Provide accurate and current information\n\n### Appropriate Use\n- Use services only for legitimate healthcare purposes\n- Follow healthcare provider instructions\n- Respect other users and community guidelines\n\n## Medical Disclaimer\n\n- Our AI system provides preliminary insights, not medical diagnoses\n- Always consult with licensed healthcare professionals for medical decisions\n- In emergencies, contact local emergency services immediately\n- We do not guarantee specific health outcomes\n\n## Privacy and Data Protection\n\nYour privacy is protected under our Privacy Policy and applicable healthcare privacy laws including HIPAA.\n\n## Payment Terms\n\n- Fees are due as specified in your service plan\n- We accept various payment methods\n- Refunds are subject to our refund policy\n- Insurance coverage varies by plan and provider\n\n## Limitation of Liability\n\nIntimaCare's liability is limited to the maximum extent permitted by law. We are not liable for:\n- Medical outcomes or treatment results\n- Technical issues or service interruptions\n- Third-party actions or services\n\n## Termination\n\nWe may terminate or suspend your account for:\n- Violation of these terms\n- Fraudulent or inappropriate behavior\n- Non-payment of fees\n- Legal or regulatory requirements\n\n## Changes to Terms\n\nWe reserve the right to modify these terms at any time. Changes will be posted on our platform and communicated to users.\n\n## Governing Law\n\nThese terms are governed by the laws of [Jurisdiction] without regard to conflict of law principles.\n\n## Contact Information\n\nFor questions about these Terms & Conditions:\n- Email: legal@intimacare.com\n- Phone: +1 (555) 123-4567"
+    }
+  },
+  {
+    "model": "cms.legaldocument",
+    "pk": 3,
+    "fields": {
+      "title": "Cookies Policy",
+      "slug": "cookies-policy",
+      "document_type": "cookies",
+      "content": "# Cookies Policy\n\n**Effective Date:** November 24, 2025\n\n## What Are Cookies\n\nCookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by remembering your preferences and improving our services.\n\n## Types of Cookies We Use\n\n### Essential Cookies\n- Required for basic website functionality\n- Enable secure login and account access\n- Remember your session information\n- Cannot be disabled without affecting site functionality\n\n### Performance Cookies\n- Help us understand how visitors use our site\n- Collect anonymous information about page visits\n- Allow us to improve site performance and user experience\n- Can be disabled in your browser settings\n\n### Functional Cookies\n- Remember your preferences and settings\n- Provide enhanced features and personalization\n- Improve your overall user experience\n- Can be managed through your account settings\n\n### Analytics Cookies\n- Help us analyze website traffic and usage patterns\n- Provide insights for improving our services\n- Generate reports on site performance\n- Data is anonymized and aggregated\n\n## Managing Cookies\n\n### Browser Settings\nYou can control cookies through your browser settings:\n- Chrome: Settings > Privacy and Security > Cookies\n- Firefox: Options > Privacy & Security > Cookies\n- Safari: Preferences > Privacy > Cookies\n- Edge: Settings > Privacy > Cookies\n\n### Our Cookie Preferences\nYou can manage your cookie preferences through our cookie consent banner or in your account settings.\n\n## Third-Party Cookies\n\nWe may use third-party services that set their own cookies:\n- Google Analytics (for website analytics)\n- Payment processors (for secure transactions)\n- Customer support tools (for help and assistance)\n\nThese third parties have their own privacy policies and cookie practices.\n\n## Cookie Retention\n\n- Session cookies are deleted when you close your browser\n- Persistent cookies remain until their expiration date or until you delete them\n- We regularly review and update our cookie retention periods\n\n## Updates to This Policy\n\nWe may update this Cookies Policy from time to time. Changes will be posted on this page with an updated effective date.\n\n## Contact Us\n\nIf you have questions about our use of cookies:\n- Email: privacy@intimacare.com\n- Phone: +1 (555) 123-4567"
+    }
+  },
+  {
+    "model": "cms.legaldocument",
+    "pk": 4,
+    "fields": {
+      "title": "Accessibility Statement",
+      "slug": "accessibility-statement",
+      "document_type": "accessibility",
+      "content": "# Accessibility Statement\n\n**Effective Date:** November 24, 2025\n\n## Our Commitment to Accessibility\n\nIntimaCare is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards.\n\n## Accessibility Standards\n\nWe strive to conform to the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. These guidelines help make web content more accessible to people with disabilities.\n\n## Accessibility Features\n\n### Navigation\n- Consistent navigation structure across all pages\n- Skip links to main content\n- Logical heading hierarchy\n- Keyboard navigation support\n\n### Visual Design\n- High contrast color schemes\n- Scalable text and interface elements\n- Clear visual focus indicators\n- Alternative text for images\n\n### Interactive Elements\n- Keyboard accessible forms and controls\n- Clear error messages and instructions\n- Sufficient time limits for interactions\n- No content that causes seizures or physical reactions\n\n### Content\n- Plain language and clear instructions\n- Consistent terminology and layout\n- Descriptive link text\n- Structured content with proper headings\n\n## Assistive Technology Support\n\nOur platform is designed to work with:\n- Screen readers (JAWS, NVDA, VoiceOver)\n- Voice recognition software\n- Keyboard-only navigation\n- Screen magnification tools\n\n## Known Limitations\n\nWe are aware of some accessibility limitations and are working to address them:\n- Some third-party embedded content may not be fully accessible\n- Certain interactive features are being improved for better accessibility\n- Video content is being updated with captions and transcripts\n\n## Ongoing Efforts\n\n### Regular Testing\n- Automated accessibility testing tools\n- Manual testing with assistive technologies\n- User testing with people with disabilities\n- Regular accessibility audits\n\n### Staff Training\n- Accessibility awareness training for all staff\n- Technical training for developers and designers\n- Regular updates on accessibility best practices\n\n### Continuous Improvement\n- Regular review and update of accessibility features\n- Implementation of user feedback\n- Monitoring of new accessibility standards and guidelines\n\n## Feedback and Support\n\nWe welcome feedback on the accessibility of IntimaCare. If you encounter accessibility barriers:\n\n### Contact Methods\n- Email: accessibility@intimacare.com\n- Phone: +1 (555) 123-4567\n- TTY: +1 (555) 123-4568\n- Mail: IntimaCare Accessibility Team, [Address]\n\n### Response Time\nWe aim to respond to accessibility feedback within 2 business days and will work with you to provide the information or service you need in an accessible format.\n\n## Alternative Access\n\nIf you cannot access certain content or features, we can provide:\n- Alternative formats (large print, audio, etc.)\n- Personal assistance via phone or email\n- Modified procedures or services\n\n## Legal Compliance\n\nThis accessibility statement is in accordance with:\n- Americans with Disabilities Act (ADA)\n- Section 508 of the Rehabilitation Act\n- Web Content Accessibility Guidelines (WCAG) 2.1\n\n## Updates\n\nThis accessibility statement was last updated on November 24, 2025. We review and update this statement regularly as we continue to improve accessibility."
+    }
+  }
+]
